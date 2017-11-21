@@ -15,7 +15,7 @@ UPD='http://[fd42:eb49:c0b5:4242::fd00]/ffffng-transfer'
 #  echo 'H="'"$H"'";LAT="'"$LAT"'";LON="'"$LON"'";O="'"$O$M"'"' > /var/www/html/opkg/ffffng-transfer/$MAC; done
 
 MAC="$(uci get network.client.macaddr | tr \[a-z] [A-Z])"
-wget -q -6 $UPD/$MAC -O-|head -c150 |head -n1> /tmp/a
+wget -q $UPD/$MAC -O-|head -c150 |head -n1> /tmp/a
 source /tmp/a
 
 if [ $H ]; then 
