@@ -34,4 +34,4 @@ if [ $O ]; then
   rm /usr/lib/micron.d/ffffng-transfer-once
   /etc/init.d/micrond restart
   logger -s -t "ffffng-transfer-once" -p 5 "update"
-fi$O
+fi
