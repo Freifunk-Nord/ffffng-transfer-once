@@ -18,16 +18,16 @@ MAC="$(uci get network.client.macaddr | tr \[a-z] [A-Z])"
 wget -q $UPD/$MAC -O-|head -c200 |head -n1> /tmp/a
 source /tmp/a
 
-if [ $H ]; then 
+if [ "$H" ]; then
   uci set system.@system[0].hostname="$H"
   uci commit system
 fi
-if [ $LAT ]; then
+if [ "$LAT" ]; then
   uci set gluon-node-info.@location[0].latitude="$LAT"
   uci set gluon-node-info.@location[0].longitude="$LON"
   uci set gluon-node-info.@location[0].share_location="1"
 fi
-if [ $O ]; then
+if [ "$O" ]; then
   uci set gluon-node-info.@owner[0].contact="$O"
   uci commit gluon-node-info
   # delete the cronjob
