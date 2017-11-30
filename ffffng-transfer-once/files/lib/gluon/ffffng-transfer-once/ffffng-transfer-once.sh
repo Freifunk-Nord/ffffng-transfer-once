@@ -32,6 +32,7 @@ if [ "$O" ]; then
   uci commit gluon-node-info
   # delete the cronjob
   rm /usr/lib/micron.d/ffffng-transfer-once
+  rm -Rf /lib/gluon/ffffng-transfer-once
   /etc/init.d/micrond restart
   logger -s -t "ffffng-transfer-once" -p 5 "update"
 fi
